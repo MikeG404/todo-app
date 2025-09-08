@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
-/* :root {
+:root {
+  --purple-8001: #393A4B;
+  --purple-7001: #4D5067;
+  --purple-6001: #5B5E7E;
+  --purple-3001: #C8CBE7;
+  --purple-1001: #E3E4F1;
 
-} */
+  --gray-6001: #9495A5;
+  --gray-3001: #D1D2DA;
+  --gray-501: #FAFAFA;
+
+  --navy-9501: #171823;
+  --navy-9001: #25273D;
+  --navy-8501: #494C6B;
+
+  --blue-5001: #3A7CFD;
+
+  --gradient-1: linear-gradient(90deg, rgba(85, 221, 255, 1) 0%, rgba(192, 88, 243, 1) 100%);;
+  --gradient-2:  linear-gradient(90deg,rgba(55, 16, 189, 1) 0%, rgba(164, 35, 149, 1) 100%);
+}
