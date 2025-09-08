@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 import BgMobileLight from '../public/images/bg-mobile-light.jpg'
 // import BgMobileDark from '../public/images/bg-mobile-dark.jpg'
+import Logo from '../public/images/logo.png'
+
 import ThemeMode from './components/ThemeMode'
 
 function App() {
@@ -13,10 +15,10 @@ function App() {
   }
 
   return (
-    <main>
+    <main className='flex flex-col gap-10'>
       <header className='relative z-10'>
         <div className='absolute w-full flex flex-row justify-between items-center px-6 pt-12'>
-          <h1>TODO</h1>
+          <img className='w-[108px]' src={Logo} alt="Logo TODO" />
           <ThemeMode onThemeMode={handleThemeMode} isThemeMode={isThemeMode}/>
         </div>
         <picture className='absolute -z-10'>
