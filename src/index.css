@@ -20,3 +20,35 @@
   --gradient-1: linear-gradient(90deg, rgba(85, 221, 255, 1) 0%, rgba(192, 88, 243, 1) 100%);;
   --gradient-2:  linear-gradient(90deg,rgba(55, 16, 189, 1) 0%, rgba(164, 35, 149, 1) 100%);
 }
+
+html {
+  font-size: 10px;
+}
+
+.preset-1 {
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+}
+
+.preset-2-bold {
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.preset-2-regular {
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+}
+
+.preset-3 {
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+}
