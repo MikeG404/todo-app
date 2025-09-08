@@ -21,6 +21,14 @@
   --gradient-2:  linear-gradient(90deg,rgba(55, 16, 189, 1) 0%, rgba(164, 35, 149, 1) 100%);
 }
 
+.light-mode {
+  background-color: var(--gray-501);
+}
+
+.dark-mode {
+  background-color: var(--navy-9501);
+}
+
 html {
   font-size: 10px;
 }
