@@ -7,6 +7,7 @@ import ThemeMode from './components/ThemeMode'
 import AddTodoInput from './components/AddTodoInput'
 import Illustration from './components/Illustration'
 import TaskList from './components/TaskList'
+import TaskFilter from './components/TaskFilter'
 
 function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
@@ -28,6 +29,7 @@ function App() {
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput />
           <TaskList />
+          <TaskFilter />
         </section>
       </section>
     </main>

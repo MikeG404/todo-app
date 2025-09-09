@@ -21,7 +21,7 @@ const data = [
 
 export default function TaskList() {
   return (
-    <ul className='flex flex-col gap-8 rounded p-4 bg-white'>
+    <ul className='flex flex-col gap-8 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
         {data.map((task) => {
             return <li><Task key={task.id} id={task.id} task={task.title} /></li>
         })}
