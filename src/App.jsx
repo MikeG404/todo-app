@@ -17,7 +17,7 @@ function App() {
   return (
     <main className={`h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
       <Illustration isThemeMode={isThemeMode}/>
-      <section className='h-screen flex flex-col gap-10 z-10'>
+      <section className='flex flex-col gap-10 z-10'>
         <header>
           <div className='w-full flex flex-row justify-between items-center px-6 pt-12'>
             <img className='w-[108px]' src={Logo} alt="Logo TODO" />
