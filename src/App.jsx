@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <main className={`h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
+    <main className={`min-h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
       <Illustration isThemeMode={isThemeMode}/>
       <section className='flex flex-col gap-10 z-10'>
         <header>
@@ -29,7 +29,10 @@ function App() {
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput />
           <TaskList />
-          <TaskFilter />
+          <div className='flex flex-col gap-10'>
+            <TaskFilter />
+            <p className='text-center'>Drag and drop to reorder list</p>
+          </div>
         </section>
       </section>
     </main>
