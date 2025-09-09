@@ -28,10 +28,10 @@
 .dark-mode {
   background-color: var(--navy-9501);
 }
-
+/* 
 html {
   font-size: 10px;
-}
+} */
 
 .preset-1 {
   font-size: 1.8rem;

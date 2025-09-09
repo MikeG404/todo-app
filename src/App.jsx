@@ -6,6 +6,7 @@ import Logo from '/public/images/logo.png'
 import ThemeMode from './components/ThemeMode'
 import AddTodoInput from './components/AddTodoInput'
 import Illustration from './components/Illustration'
+import Task from './components/Task'
 
 function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
@@ -24,8 +25,16 @@ function App() {
             <ThemeMode onThemeMode={handleThemeMode} isThemeMode={isThemeMode}/>
           </div>
         </header>
-        <section className='px-6'>
+        <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput />
+          <ul className='flex flex-col gap-8 rounded p-4 bg-white'>
+            <li><Task /></li>
+            <li><Task /></li>
+            <li><Task /></li>
+            <li><Task /></li>
+            <li><Task /></li>
+            <li><Task /></li>
+          </ul>
         </section>
       </section>
     </main>
