@@ -1,10 +1,11 @@
-import React from 'react'
+import Checkbox from "./Checkbox";
 
 export default function Task() {
   return (
     <div className='flex items-center gap-4'>
-        <input type="checkbox" name="task" id="task" />
-        <label htmlFor="task">Complete online Javascript course</label>
+        <Checkbox />
+        <p className='preset-3 flex-1'>Complete online Javascript course</p>
+        <img src="./images/icon-cross.svg" alt="" />
     </div>
   )
 }

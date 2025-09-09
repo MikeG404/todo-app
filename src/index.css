@@ -28,35 +28,71 @@
 .dark-mode {
   background-color: var(--navy-9501);
 }
-/* 
-html {
+
+/* html {
   font-size: 10px;
 } */
 
 .preset-1 {
-  font-size: 1.8rem;
+  font-size: 18px;
   line-height: 1;
   letter-spacing: -0.25px;
   font-weight: 400;
 }
 
 .preset-2-bold {
-  font-size: 1.4rem;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: -0.25px;
   font-weight: 700;
 }
 
 .preset-2-regular {
-  font-size: 1.4rem;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: -0.25px;
   font-weight: 400;
 }
 
 .preset-3 {
-  font-size: 1.2rem;
+  font-size: 12px;
   line-height: 1;
   letter-spacing: -0.25px;
   font-weight: 400;
+}
+
+.checkbox-hidden {
+  display: none;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--purple-1001);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+}
+
+input[type="checkbox"]:checked + .checkbox::before {
+  background-image: url('/images/icon-check.svg'), var(--gradient-1); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7px 5px, cover;
 }
