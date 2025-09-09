@@ -1,4 +1,5 @@
 import Task from '../components/Task'
+import TaskDetail from './TaskDetail'
 
 const data = [
     {
@@ -17,14 +18,23 @@ const data = [
         id: 4,
         title: 'Complete Online Javascript Course'
     },
+        {   
+        id: 5,
+        title: 'Complete Online Javascript Course'
+    },
+    {   
+        id: 6,
+        title: 'Complete Online Javascript Course'
+    },
 ]
 
 export default function TaskList() {
   return (
-    <ul className='flex flex-col gap-8 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
+    <ul className='flex flex-col gap-4 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
         {data.map((task) => {
             return <li><Task key={task.id} id={task.id} task={task.title} /></li>
         })}
+        <TaskDetail number={data.length}/>
     </ul>
   )
 }
