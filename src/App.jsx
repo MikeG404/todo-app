@@ -9,8 +9,36 @@ import Illustration from './components/Illustration'
 import TaskList from './components/TaskList'
 import TaskFilter from './components/TaskFilter'
 
+const data = [
+    {
+        id: 1,
+        title: 'Complete Online Javascript Course'
+    },
+    {
+        id: 2,
+        title: 'Complete Online Javascript Course'
+    },
+    {
+        id: 3,
+        title: 'Complete Online Javascript Course'
+    },
+    {   
+        id: 4,
+        title: 'Complete Online Javascript Course'
+    },
+        {   
+        id: 5,
+        title: 'Complete Online Javascript Course'
+    },
+    {   
+        id: 6,
+        title: 'Complete Online Javascript Course'
+    },
+]
+
 function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
+  const [inputValue, setInputValue] = useState('');
 
   const handleThemeMode = () => {
     setIsThemeMode(!isThemeMode);
@@ -27,8 +55,8 @@ function App() {
           </div>
         </header>
         <section className='flex flex-col gap-4 px-6'>
-          <AddTodoInput />
-          <TaskList />
+          <AddTodoInput value={inputValue} setInputValue={setInputValue}/>
+          <TaskList data={data}/>
           <div className='flex flex-col gap-10'>
             <TaskFilter />
             <p className='text-center'>Drag and drop to reorder list</p>
