@@ -8,12 +8,16 @@ export default function AddTodoInput({value, setInputValue}) {
     console.log(e.target.value);
   }
 
+  const handleSubmit = () => {
+    
+  }
+
   return (
-    <div className='px-6 py-3.5 rounded bg-white placeholder:preset-3'>
+    <form onSubmit={handleSubmit} className='px-6 py-3.5 rounded bg-white placeholder:preset-3'>
         <div className='flex items-center gap-4'>
           <Checkbox />
           <input value={value} onChange={handleChange} className='outline-none' type="text" placeholder='Create a new todo...' />
         </div>
-    </div>
+    </form>
   )
 }
