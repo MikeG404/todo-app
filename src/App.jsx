@@ -44,6 +44,15 @@ function App() {
     setIsThemeMode(!isThemeMode);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newData = {
+      id: data.length + 1,
+      title: inputValue
+    }
+   data.push(newData) 
+  }
+
   return (
     <main className={`min-h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
       <Illustration isThemeMode={isThemeMode}/>
@@ -55,7 +64,7 @@ function App() {
           </div>
         </header>
         <section className='flex flex-col gap-4 px-6'>
-          <AddTodoInput value={inputValue} setInputValue={setInputValue}/>
+          <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
           <TaskList data={data}/>
           <div className='flex flex-col gap-10'>
             <TaskFilter />

@@ -1,16 +1,14 @@
 import React from 'react'
 import Checkbox from './Checkbox'
 
-export default function AddTodoInput({value, setInputValue}) {
+export default function AddTodoInput({value, setInputValue, handleSubmit}) {
 
   const handleChange = (e) => {
     setInputValue(e.target.value)
     console.log(e.target.value);
   }
 
-  const handleSubmit = () => {
-    
-  }
+
 
   return (
     <form onSubmit={handleSubmit} className='px-6 py-3.5 rounded bg-white placeholder:preset-3'>
