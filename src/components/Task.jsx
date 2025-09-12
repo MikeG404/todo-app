@@ -1,9 +1,9 @@
 import Checkbox from "./Checkbox";
 
-export default function Task({ id, task, deleteTask, completedTask }) {
+export default function Task({ id, task, deleteTask, completedTask, isCompleted }) {
   return (
-    <div className='flex items-center gap-4 border-b-2 border-b-gray-100 pb-4'>
-        <Checkbox id={id} completedTask={completedTask}/>
+  <div className='flex items-center gap-4 border-b-2 border-b-gray-100 pb-4'>
+    <Checkbox id={id} completedTask={completedTask} isCompleted={isCompleted}/>
         <p className='preset-3 flex-1'>{task}</p>
         <img 
           src="./images/icon-cross.svg" 

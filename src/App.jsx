@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Logo from '/images/logo.png'
 
@@ -14,6 +14,8 @@ function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([]);
+  const [isFiltered, setIsFiltered] = useState('All');
+  const [filteredList, setFilteredList] = useState([]);
 
   const handleThemeMode = () => {
     setIsThemeMode(!isThemeMode);
@@ -49,6 +51,16 @@ function App() {
 
     setTodos(clearedTodos);
   }
+  
+    useEffect(() => {
+      let list = todos;
+      if (isFiltered === 'Active') {
+        list = todos.filter(todo => !todo.isCompleted);
+      } else if (isFiltered === 'Completed') {
+        list = todos.filter(todo => todo.isCompleted);
+      }
+      setFilteredList(list);
+    }, [todos, isFiltered]);
 
   return (
     <main className={`min-h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
@@ -63,13 +75,13 @@ function App() {
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
           <TaskList 
-            data={todos}
+            data={filteredList}
             deleteTask={deleteTask}
             completedTask={completedTask}
             clearCompletedTask={clearCompletedTask}
             />
           <div className='flex flex-col gap-10'>
-            <TaskFilter />
+            <TaskFilter setIsFiltered={setIsFiltered}/>
             <p className='text-center'>Drag and drop to reorder list</p>
           </div>
         </section>
