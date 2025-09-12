@@ -30,6 +30,11 @@ function App() {
     setInputValue('')
   }
 
+  const deleteTask = (id) => {
+  const newTodos = todos.filter((i) => i.id !== id);
+  setTodos(newTodos);
+  }
+
   return (
     <main className={`min-h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
       <Illustration isThemeMode={isThemeMode}/>
@@ -42,7 +47,7 @@ function App() {
         </header>
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
-          <TaskList data={todos}/>
+          <TaskList data={todos} deleteTask={deleteTask}/>
           <div className='flex flex-col gap-10'>
             <TaskFilter />
             <p className='text-center'>Drag and drop to reorder list</p>
