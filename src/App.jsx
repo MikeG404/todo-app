@@ -23,7 +23,8 @@ function App() {
     e.preventDefault();
     const newTodo = {
       id: todos.length + 1,
-      title: inputValue
+      title: inputValue,
+      isCompleted: false
     }
 
     setTodos((prev) => [...prev, newTodo])
@@ -33,6 +34,20 @@ function App() {
   const deleteTask = (id) => {
   const newTodos = todos.filter((i) => i.id !== id);
   setTodos(newTodos);
+  }
+
+  const completedTask = (id) => {
+    const updatedTodo = todos.map((todo) =>
+      todo.id === id ? {...todo, isCompleted: true} : todo 
+    );
+  
+    setTodos(updatedTodo);
+  }
+
+  const clearCompletedTask = () => {
+    const clearedTodos = todos.filter(i => !i.isCompleted)
+
+    setTodos(clearedTodos);
   }
 
   return (
@@ -47,7 +62,12 @@ function App() {
         </header>
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
-          <TaskList data={todos} deleteTask={deleteTask}/>
+          <TaskList 
+            data={todos}
+            deleteTask={deleteTask}
+            completedTask={completedTask}
+            clearCompletedTask={clearCompletedTask}
+            />
           <div className='flex flex-col gap-10'>
             <TaskFilter />
             <p className='text-center'>Drag and drop to reorder list</p>
