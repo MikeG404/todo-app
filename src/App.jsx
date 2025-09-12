@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 
-import Logo from '/public/images/logo.png'
+import Logo from '/images/logo.png'
 
 import ThemeMode from './components/ThemeMode'
 import AddTodoInput from './components/AddTodoInput'
@@ -9,36 +9,11 @@ import Illustration from './components/Illustration'
 import TaskList from './components/TaskList'
 import TaskFilter from './components/TaskFilter'
 
-const data = [
-    {
-        id: 1,
-        title: 'Complete Online Javascript Course'
-    },
-    {
-        id: 2,
-        title: 'Complete Online Javascript Course'
-    },
-    {
-        id: 3,
-        title: 'Complete Online Javascript Course'
-    },
-    {   
-        id: 4,
-        title: 'Complete Online Javascript Course'
-    },
-        {   
-        id: 5,
-        title: 'Complete Online Javascript Course'
-    },
-    {   
-        id: 6,
-        title: 'Complete Online Javascript Course'
-    },
-]
 
 function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
   const [inputValue, setInputValue] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const handleThemeMode = () => {
     setIsThemeMode(!isThemeMode);
@@ -46,11 +21,13 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newData = {
-      id: data.length + 1,
+    const newTodo = {
+      id: todos.length + 1,
       title: inputValue
     }
-   data.push(newData) 
+
+    setTodos((prev) => [...prev, newTodo])
+    setInputValue('')
   }
 
   return (
@@ -65,7 +42,7 @@ function App() {
         </header>
         <section className='flex flex-col gap-4 px-6'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
-          <TaskList data={data}/>
+          <TaskList data={todos}/>
           <div className='flex flex-col gap-10'>
             <TaskFilter />
             <p className='text-center'>Drag and drop to reorder list</p>
