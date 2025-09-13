@@ -1,13 +1,9 @@
-import {DndContext, useDroppable} from '@dnd-kit/core';
-
 import Task from '../components/Task'
 import TaskDetail from './TaskDetail'
 
 
 export default function TaskList({data, deleteTask, completedTask, clearCompletedTask, isThemeMode}) {
-   
   return (
-    <DndContext>
       <ul className={`flex flex-col gap-4 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${isThemeMode ? 'bg-white' : 'container'}`}>
         {data.map((todo) => {
           return (
@@ -16,6 +12,5 @@ export default function TaskList({data, deleteTask, completedTask, clearComplete
         })}
           <TaskDetail number={data.length} clearCompletedTask={clearCompletedTask}/>
       </ul>
-    </DndContext>
   )
 }

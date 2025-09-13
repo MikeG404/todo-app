@@ -72,7 +72,7 @@ function App() {
             <ThemeMode onThemeMode={handleThemeMode} isThemeMode={isThemeMode}/>
           </div>
         </header>
-        <section className='flex flex-col gap-4 px-6'>
+        <section className='flex flex-col gap-4 px-6 md:px-[114px] xl:px-[450px]'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} isThemeMode={isThemeMode}/>
           <TaskList 
             data={filteredList}
