@@ -27,6 +27,11 @@
 
 .dark-mode {
   background-color: var(--navy-9501);
+  color: white;
+}
+
+.container {
+  background-color: var(--navy-9001);
 }
 
 /* html {

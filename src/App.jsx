@@ -73,15 +73,16 @@ function App() {
           </div>
         </header>
         <section className='flex flex-col gap-4 px-6'>
-          <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit}/>
+          <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} isThemeMode={isThemeMode}/>
           <TaskList 
             data={filteredList}
             deleteTask={deleteTask}
             completedTask={completedTask}
             clearCompletedTask={clearCompletedTask}
+            isThemeMode={isThemeMode}
             />
           <div className='flex flex-col gap-10'>
-            <TaskFilter setIsFiltered={setIsFiltered}/>
+            <TaskFilter setIsFiltered={setIsFiltered} isThemeMode={isThemeMode}/>
             <p className='text-center'>Drag and drop to reorder list</p>
           </div>
         </section>

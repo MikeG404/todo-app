@@ -1,5 +1,5 @@
-import IconMoon from '../../public/images/icon-moon.svg'
-import IconSun from '../../public/images/icon-sun.svg'
+import IconMoon from '/images/icon-moon.svg'
+import IconSun from '/images/icon-sun.svg'
 
 export default function ThemeMode({ onThemeMode, isThemeMode }) {
   return (
