@@ -81,9 +81,9 @@ function App() {
             clearCompletedTask={clearCompletedTask}
             isThemeMode={isThemeMode}
             />
-          <div className='flex flex-col gap-10'>
+          <div className='flex flex-col justify-center items-center gap-10'>
             <TaskFilter setIsFiltered={setIsFiltered} isThemeMode={isThemeMode}/>
-            <p className='text-center'>Drag and drop to reorder list</p>
+            <p>Drag and drop to reorder list</p>
           </div>
         </section>
       </section>
