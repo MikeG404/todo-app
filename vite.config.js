@@ -4,5 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Nécessaire pour GitHub Pages (repo project): https://<user>.github.io/todo-app/
+  base: '/todo-app/',
   plugins: [react(), tailwindcss()],
 })
