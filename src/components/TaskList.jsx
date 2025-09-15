@@ -26,7 +26,7 @@ export default function TaskList({data, deleteTask, completedTask, clearComplete
       <SortableContext items={data.map(todo => todo.id)}>
         <ul id='sortable-list' className={`flex flex-col gap-4 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${isThemeMode ? 'bg-white' : 'container'}`}>
           {data.map((todo) => (
-            <li key={todo.id}><Task id={todo.id} task={todo.title} deleteTask={deleteTask} completedTask={completedTask} isCompleted={todo.isCompleted} /></li>
+            <li key={todo.id}><Task id={todo.id} task={todo.title} deleteTask={deleteTask} completedTask={completedTask} isCompleted={todo.isCompleted} isThemeMode={isThemeMode} /></li>
           ))}
           <TaskDetail number={data.length} clearCompletedTask={clearCompletedTask}/>
         </ul>

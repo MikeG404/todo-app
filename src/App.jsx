@@ -87,7 +87,7 @@ function App() {
             onReorder={handleReorder}
           />
           <div className='flex flex-col justify-center items-center gap-10'>
-            <TaskFilter setIsFiltered={setIsFiltered} isThemeMode={isThemeMode}/>
+            <TaskFilter setIsFiltered={setIsFiltered} isThemeMode={isThemeMode} currentFilter={isFiltered}/>
             <p>Drag and drop to reorder list</p>
           </div>
         </section>
