@@ -1,6 +1,6 @@
-export default function TaskDetail({number, clearCompletedTask}) {
+export default function TaskDetail({number, clearCompletedTask, isThemeMode}) {
   return (
-    <div className='preset-3 flex justify-between'>
+    <div className="task-footer">
         <p>{number} items left</p>
         <button onClick={clearCompletedTask}>Clear completed</button>
     </div>

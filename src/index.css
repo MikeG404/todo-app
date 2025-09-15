@@ -34,9 +34,101 @@
   background-color: var(--navy-9001);
 }
 
-/* html {
-  font-size: 10px;
-} */
+/* Classes pour les tâches */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid;
+}
+
+.task-item.light {
+  border-bottom-color: var(--gray-3001);
+}
+
+.task-item.dark {
+  border-bottom-color: var(--navy-8501);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+}
+
+.task-text.light {
+  color: var(--navy-8501);
+}
+
+.task-text.dark {
+  color: white;
+}
+
+.task-text.completed {
+  color: var(--gray-6001);
+  text-decoration: line-through;
+}
+
+.task-delete {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.task-delete:hover {
+  opacity: 1;
+}
+
+/* Classes pour les filtres */
+.filter-item {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.filter-item.light {
+  color: var(--gray-6001);
+}
+
+.filter-item.dark {
+  color: var(--gray-6001);
+}
+
+.filter-item.active {
+  color: var(--blue-5001);
+}
+
+.filter-item:hover {
+  color: white;
+}
+
+/* Classes pour le footer */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+  color: var(--gray-6001);
+}
+
+.task-footer button {
+  background: none;
+  border: none;
+  color: var(--gray-6001);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.task-footer button:hover {
+  color: white;
+}
 
 .preset-1 {
   font-size: 18px;
