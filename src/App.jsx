@@ -79,7 +79,7 @@ function App() {
         <section className='flex flex-col gap-4 px-6 md:px-[114px] xl:px-[450px]'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} isThemeMode={isThemeMode}/>
           <TaskList 
-            data={todos}
+            data={filteredList}
             deleteTask={deleteTask}
             completedTask={completedTask}
             clearCompletedTask={clearCompletedTask}
