@@ -1,13 +1,13 @@
 export default function Illustration({ isThemeMode }) {
   const images = isThemeMode
     ? {
-        mobile: "/images/bg-mobile-light.jpg",
-        desktop: "/images/bg-desktop-light.jpg",
+        mobile: "./images/bg-mobile-light.jpg",
+        desktop: "./images/bg-desktop-light.jpg",
         alt: "Background Light",
       }
     : {
-        mobile: "/images/bg-mobile-dark.jpg",
-        desktop: "/images/bg-desktop-dark.jpg",
+        mobile: "./images/bg-mobile-dark.jpg",
+        desktop: "./images/bg-desktop-dark.jpg",
         alt: "Background Dark",
       };
 
@@ -23,6 +23,7 @@ export default function Illustration({ isThemeMode }) {
           sm:h-auto sm:object-contain
           lg: lg:object-cover
         "
+        key={isThemeMode ? 'light' : 'dark'}
       />
     </picture>
   );
