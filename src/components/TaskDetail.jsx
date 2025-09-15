@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function TaskDetail({number, clearCompletedTask}) {
   return (
     <div className='preset-3 flex justify-between'>

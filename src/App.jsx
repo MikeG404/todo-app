@@ -23,8 +23,9 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newTodo = {
-      id: todos.length + 1,
+      id: `todo-${Date.now()}`,
       title: inputValue,
       isCompleted: false
     }
@@ -51,6 +52,10 @@ function App() {
 
     setTodos(clearedTodos);
   }
+
+  const handleReorder = (newOrder) => {
+    setTodos(newOrder);
+  }
   
     useEffect(() => {
       let list = todos;
@@ -75,12 +80,13 @@ function App() {
         <section className='flex flex-col gap-4 px-6 md:px-[114px] xl:px-[450px]'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} isThemeMode={isThemeMode}/>
           <TaskList 
-            data={filteredList}
+            data={todos}
             deleteTask={deleteTask}
             completedTask={completedTask}
             clearCompletedTask={clearCompletedTask}
             isThemeMode={isThemeMode}
-            />
+            onReorder={handleReorder}
+          />
           <div className='flex flex-col justify-center items-center gap-10'>
             <TaskFilter setIsFiltered={setIsFiltered} isThemeMode={isThemeMode}/>
             <p>Drag and drop to reorder list</p>
