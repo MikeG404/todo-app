@@ -7,8 +7,10 @@ export default function Checkbox({ id, completedTask, isCompleted }) {
       className="checkbox-hidden"
       checked={isCompleted}
       onChange={() => completedTask(id)}
+      onPointerDown={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
     />
-        <label htmlFor={id} className="checkbox"></label>
+        <label htmlFor={id} className="checkbox" onPointerDown={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}></label>
     </div>
   )
 }
