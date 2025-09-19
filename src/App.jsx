@@ -72,10 +72,8 @@ function App() {
 
 useEffect(() => {
   const fetchTodos = async () => {
-    console.log("Le composant est monté, je lance la récupération...");
-    const lesTodosRecuperees = await todoService.getTodos();
-    console.log("J'ai reçu les données :", lesTodosRecuperees);
-    setTodos(lesTodosRecuperees)
+    const data = await todoService.getTodos();
+    setTodos(data)
   };
 
   fetchTodos();

@@ -10,8 +10,8 @@ export default function TaskList({data, deleteTask, completedTask, clearComplete
       const { active, over } = e;
       if (!over || active.id === over.id) return;
   
-      const oldIndex = data.findIndex(item => item.id === active.id);
-      const newIndex = data.findIndex(item => item.id === over.id);
+      const oldIndex = data.findIndex(item => item._id === active.id);
+      const newIndex = data.findIndex(item => item._id === over.id);
   
       if (oldIndex !== -1 && newIndex !== -1) {
         const updated = [...data];
@@ -23,10 +23,10 @@ export default function TaskList({data, deleteTask, completedTask, clearComplete
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
-      <SortableContext items={data.map(todo => todo.id)}>
+      <SortableContext items={data.map(todo => todo._id)}>
         <ul id='sortable-list' className={`flex flex-col gap-4 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${isThemeMode ? 'bg-white' : 'container'}`}>
           {data.map((todo) => (
-            <li key={todo.id}><Task id={todo.id} task={todo.title} deleteTask={deleteTask} completedTask={completedTask} isCompleted={todo.isCompleted} isThemeMode={isThemeMode} /></li>
+            <li key={todo._id}><Task id={todo._id} task={todo.title} deleteTask={deleteTask} completedTask={completedTask} isCompleted={todo.isCompleted} isThemeMode={isThemeMode} /></li>
           ))}
           <TaskDetail number={data.length} clearCompletedTask={clearCompletedTask}/>
         </ul>
