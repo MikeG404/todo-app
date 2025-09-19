@@ -4,7 +4,7 @@ import TaskDetail from './TaskDetail'
 import { DndContext } from '@dnd-kit/core'
 import { SortableContext } from '@dnd-kit/sortable'
 
-export default function TaskList({data, deleteTask, completedTask, clearCompletedTask, isThemeMode, onReorder}) {
+export default function TaskList({data, filteredData, deleteTask, completedTask, clearCompletedTask, isThemeMode, onReorder}) {
   
     const handleDragEnd = (e) => {
       const { active, over } = e;
@@ -25,10 +25,10 @@ export default function TaskList({data, deleteTask, completedTask, clearComplete
     <DndContext onDragEnd={handleDragEnd}>
       <SortableContext items={data.map(todo => todo._id)}>
         <ul id='sortable-list' className={`flex flex-col gap-4 rounded p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${isThemeMode ? 'bg-white' : 'container'}`}>
-          {data.map((todo) => (
+          {filteredData.map((todo) => (
             <li key={todo._id}><Task id={todo._id} task={todo.title} deleteTask={deleteTask} completedTask={completedTask} isCompleted={todo.isCompleted} isThemeMode={isThemeMode} /></li>
           ))}
-          <TaskDetail number={data.length} clearCompletedTask={clearCompletedTask}/>
+          <TaskDetail number={filteredData.length} clearCompletedTask={clearCompletedTask}/>
         </ul>
       </SortableContext>
     </DndContext>

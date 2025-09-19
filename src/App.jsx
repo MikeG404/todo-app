@@ -23,36 +23,39 @@ function App() {
     setIsThemeMode(!isThemeMode);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newTodo = {
-      id: `todo-${Date.now()}`,
+    if (!inputValue.trim()) return;
+
+    const payload = {
       title: inputValue,
       isCompleted: false
+    };
+
+    const created = await todoService.addTodo(payload);
+
+    if (created) {
+      setTodos((prev) => [...prev, created]);
+      setInputValue('');
     }
-
-    todoService.addTodo(newTodo);
-
-    setTodos((prev) => [...prev, newTodo])
-    setInputValue('')
   }
 
-  const deleteTask = (id) => {
-  const newTodos = todos.filter((i) => i.id !== id);
-  setTodos(newTodos);
+  const deleteTask = async (id) => {
+    await todoService.deleteTodo(id);
+    const newTodos = todos.filter((i) => i._id !== id);
+    setTodos(newTodos);
   }
 
   const completedTask = (id) => {
     const updatedTodo = todos.map((todo) =>
-      todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : todo 
+      todo._id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     );
     setTodos(updatedTodo);
   }
 
   const clearCompletedTask = () => {
     const clearedTodos = todos.filter(i => !i.isCompleted)
-
     setTodos(clearedTodos);
   }
 
@@ -73,9 +76,8 @@ function App() {
 useEffect(() => {
   const fetchTodos = async () => {
     const data = await todoService.getTodos();
-    setTodos(data)
+    setTodos(data);
   };
-
   fetchTodos();
 }, []);
 
@@ -92,7 +94,8 @@ useEffect(() => {
         <section className='flex flex-col gap-4 px-6 md:px-[114px] xl:px-[450px]'>
           <AddTodoInput value={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} isThemeMode={isThemeMode}/>
           <TaskList 
-            data={filteredList}
+            data={todos}
+            filteredData={filteredList}
             deleteTask={deleteTask}
             completedTask={completedTask}
             clearCompletedTask={clearCompletedTask}
@@ -110,3 +113,4 @@ useEffect(() => {
 }
 
 export default App
+

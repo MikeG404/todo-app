@@ -1,4 +1,4 @@
-const url = ' http://localhost:3000/todo/'
+const url = 'http://localhost:3000/todo'
 
 export const todoService = {
     getTodos: async () => {
