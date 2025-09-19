@@ -9,6 +9,8 @@ import Illustration from './components/Illustration'
 import TaskList from './components/TaskList'
 import TaskFilter from './components/TaskFilter'
 
+import { todoService } from '../services/todo.service'
+
 
 function App() {
   const [isThemeMode, setIsThemeMode] = useState(true);
@@ -29,6 +31,8 @@ function App() {
       title: inputValue,
       isCompleted: false
     }
+
+    todoService.addTodo(newTodo);
 
     setTodos((prev) => [...prev, newTodo])
     setInputValue('')

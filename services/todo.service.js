@@ -16,14 +16,14 @@ export const todoService = {
 
     },
 
-    addTodo: async (title) => {
+    addTodo: async (object) => {
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Content-type': 'application/json'
+                    'Content-type': 'application/json',
                 },
-                body: JSON.stringify(title)
+                body: JSON.stringify(object)
             })
 
             if (!response.ok) {
