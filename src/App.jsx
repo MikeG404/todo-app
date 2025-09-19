@@ -70,6 +70,17 @@ function App() {
       setFilteredList(list);
     }, [todos, isFiltered]);
 
+useEffect(() => {
+  const fetchTodos = async () => {
+    console.log("Le composant est monté, je lance la récupération...");
+    const lesTodosRecuperees = await todoService.getTodos();
+    console.log("J'ai reçu les données :", lesTodosRecuperees);
+    setTodos(lesTodosRecuperees)
+  };
+
+  fetchTodos();
+}, []);
+
   return (
     <main className={`min-h-screen relative flex flex-col ${isThemeMode ? 'light-mode' : 'dark-mode'}`}>
       <Illustration isThemeMode={isThemeMode}/>
