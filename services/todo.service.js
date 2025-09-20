@@ -92,4 +92,22 @@ export const todoService = {
             console.log(error.message);
         }
     }
+    ,
+
+    deleteCompleted: async () => {
+        try {
+            console.log('[frontend] DELETE', `${url}/completed`);
+            const response = await fetch(`${url}/completed`, {
+                method: 'DELETE',
+            })
+
+            if (!response.ok) {
+                throw new Error("Bulk delete request failed " + response.status);
+            }
+            return response.json();
+        } catch (error) {
+            console.error('[frontend] deleteCompleted error:', error);
+            throw error;
+        }
+    }
 } 

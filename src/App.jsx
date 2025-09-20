@@ -72,12 +72,13 @@ function App() {
   }
 
   const clearCompletedTask = async () => {
-    const completedIds = todos.filter(t => t.isCompleted).map(t => t._id);
+    const previous = todos;
+    const clearedTodos = todos.filter(i => !i.isCompleted);
+    setTodos(clearedTodos);
     try {
-      await Promise.all(completedIds.map(id => todoService.deleteTodo(id)));
-      const clearedTodos = todos.filter(i => !i.isCompleted)
-      setTodos(clearedTodos);
+      await todoService.deleteCompleted();
     } catch (e) {
+      setTodos(previous);
       console.error(e);
     }
   }
@@ -96,13 +97,19 @@ function App() {
   }
   
     useEffect(() => {
-      let list = todos;
-      if (isFiltered === 'Active') {
-        list = todos.filter(todo => !todo.isCompleted);
-      } else if (isFiltered === 'Completed') {
-        list = todos.filter(todo => todo.isCompleted);
+      if (isFiltered === 'All') {
+        setFilteredList(todos);
+        return;
       }
-      setFilteredList(list);
+      if (isFiltered === 'Active') {
+        setFilteredList(todos.filter(todo => !todo.isCompleted));
+        return;
+      }
+      if (isFiltered === 'Completed') {
+        setFilteredList(todos.filter(todo => todo.isCompleted));
+        return;
+      }
+      setFilteredList(todos);
     }, [todos, isFiltered]);
 
 useEffect(() => {
