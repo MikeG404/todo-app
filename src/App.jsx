@@ -41,10 +41,14 @@ function App() {
     }
   }
 
-  const deleteTask = async (id) => {
-    await todoService.deleteTodo(id);
-    const newTodos = todos.filter((i) => i._id !== id);
+  const deleteTask = async (_id) => {
+  try {
+    await todoService.deleteTodo(_id);
+    const newTodos = todos.filter((i) => i._id !== _id);
     setTodos(newTodos);
+  } catch (e) {
+    console.error(e);
+  }
   }
 
   const completedTask = (id) => {
