@@ -51,20 +51,48 @@ function App() {
   }
   }
 
-  const completedTask = (id) => {
-    const updatedTodo = todos.map((todo) =>
-      todo._id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-    );
-    setTodos(updatedTodo);
+  const completedTask = async (id) => {
+    const current = todos.find(t => t._id === id);
+    if (!current) return;
+    const nextCompleted = !current.isCompleted;
+
+    // Optimistic update
+    setTodos(prev => prev.map(t => t._id === id ? { ...t, isCompleted: nextCompleted } : t));
+    console.log('[completedTask] optimistic set', { id, nextCompleted });
+
+    try {
+      const updated = await todoService.updateTodo(id, { isCompleted: nextCompleted });
+      if (!updated) throw new Error('No response from update');
+      console.log('[completedTask] server responded', updated);
+    } catch (e) {
+      // Rollback on error
+      setTodos(prev => prev.map(t => t._id === id ? { ...t, isCompleted: current.isCompleted } : t));
+      console.error('[completedTask] rollback due to error:', e);
+    }
   }
 
-  const clearCompletedTask = () => {
-    const clearedTodos = todos.filter(i => !i.isCompleted)
-    setTodos(clearedTodos);
+  const clearCompletedTask = async () => {
+    const completedIds = todos.filter(t => t.isCompleted).map(t => t._id);
+    try {
+      await Promise.all(completedIds.map(id => todoService.deleteTodo(id)));
+      const clearedTodos = todos.filter(i => !i.isCompleted)
+      setTodos(clearedTodos);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  const handleReorder = (newOrder) => {
-    setTodos(newOrder);
+  const handleReorder = async (newOrder) => {
+    // recalcul des positions en mémoire
+    const withPositions = newOrder.map((t, index) => ({ ...t, position: index }));
+    const previous = todos;
+    setTodos(withPositions);
+    try {
+      await todoService.updateTodosOrder(withPositions);
+    } catch (e) {
+      setTodos(previous);
+      console.error('[handleReorder] rollback due to error:', e);
+    }
   }
   
     useEffect(() => {
