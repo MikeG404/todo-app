@@ -9,7 +9,7 @@ import Illustration from './components/Illustration'
 import TaskList from './components/TaskList'
 import TaskFilter from './components/TaskFilter'
 
-import { todoService } from '../services/todo.service'
+import { todoService } from '../services/todo.service.new'
 
 
 function App() {
