@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/todo'
+const url = 'https://todo-app-api-sb4k.onrender.com/todo'
 
 export const todoService = {
     getTodos: async () => {
