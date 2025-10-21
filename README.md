@@ -1,12 +1,30 @@
-# React + Vite
+# Todo App — Frontend Mentor (Intermediate)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live – Vercel](https://img.shields.io/badge/live-Vercel-000)](https://todo-app-two-brown.vercel.app/)
+[![Stack](https://img.shields.io/badge/stack-React%2018%20%2B%20Vite%20%2B%20CSS-blue)](#tech-stack)
+[![Frontend Mentor](https://img.shields.io/badge/challenge-Frontend%20Mentor-6C63FF)](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
 
-Currently, two official plugins are available:
+Application Todo conforme au brief **Frontend Mentor – Todo app** : ajout/complétion/suppression de tâches, filtres All/Active/Completed, **Clear Completed**, **thème light/dark**, layout responsive et (option) **drag & drop** pour réordonner.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 🎯 Démo : [**https://todo-app-two-brown.vercel.app/**  ](https://vercel.com/mikeg404s-projects/todo-app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Fonctionnalités
+
+- **CRUD léger côté client** : créer, marquer comme terminé, supprimer une todo.  
+- **Filtres** : *All*, *Active*, *Completed* + compteur d’items restants.  
+- **Clear Completed** pour purger en un clic.  
+- **Thème** : **Light/Dark** (respect de `prefers-color-scheme` + toggle manuel).  
+- **Persistance locale** (ex. `localStorage`) pour conserver la liste, les filtres et le thème.  
+- **Responsive** (mobile-first) avec états hover/focus.  
+- **Bonus** : **Drag & drop** pour réordonner (si implémenté dans ta version ; sinon voir *Roadmap*).
+
+---
+
+## Tech stack
+
+- **React 18** + **Vite** (HMR).  
+- **CSS (vanilla)**.  
+- **ESLint** (flat config).  
+- **Déploiement** : Vercel.
